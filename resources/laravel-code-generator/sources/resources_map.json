@@ -1,0 +1,32 @@
+[
+    {
+        "model-name": "Activity",
+        "resource-file": "activities.json",
+        "table-name": "activities"
+    },
+    {
+        "model-name": "ActivityLog",
+        "resource-file": "activity_logs.json",
+        "table-name": "activity_logs"
+    },
+    {
+        "model-name": "user",
+        "resource-file": "users.json",
+        "table-name": "users"
+    },
+    {
+        "model-name": "document",
+        "resource-file": "documents.json",
+        "table-name": "documents"
+    },
+    {
+        "model-name": "division_action",
+        "resource-file": "division_actions.json",
+        "table-name": "division_actions"
+    },
+    {
+        "model-name": "office",
+        "resource-file": "offices.json",
+        "table-name": "offices"
+    }
+]

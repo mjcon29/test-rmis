@@ -1,0 +1,72 @@
+User roles - https://www.youtube.com/watch?v=2f0ucOIQJko
+HEROKU - https://www.youtube.com/watch?v=639Pe0PpVLQ
+HEROKU access files - heroku run bash --app docmon
+Deploy - https://www.youtube.com/watch?v=6g8G3YQtQt4
+ReactJs - https://www.youtube.com/watch?v=bMknfKXIFA8&t=19s
+scanner - https://www.dynamsoft.com/codepool/upload-document-image-laravel-windows.html
+
+---------------- cloning --------------------------------------------
+Run git clone <my-cool-project>
+Run composer install.
+Run cp .env.example .env.
+Run php artisan key:generate.
+Run php artisan migrate:fresh --seed.
+
+-----------------------------------------------
+https://tesdar6.ph/2022
+admin / a&ar%2XFoi
+admin@tesdar6.ph  / !8dw&1hjbfrSWohA(CvYXdRr
+
+database server / !8dw&1hjbfrSWohA(CvYXdRr
+
+loginpass: $2y$10$xLSCOEY2PUG4hYXJ9pgkUuTBHR7wXmfYhl6q68HZCuDd9Bkr9Ytnm
+
+https://complete-concrete-concise.com/web-tools/how-to-change-localhost-to-a-domain-name/
+https://stackoverflow.com/questions/38538859/xampp-virtual-hosts-not-working
+imagick - https://ourcodeworld.com/articles/read/349/how-to-install-and-enable-the-imagick-extension-in-xampp-for-windows
+---------------------------------------------------------------------------
+run on startup - https://www.youtube.com/watch?v=ah3syVwn0h0
+
+extensions - https://www.youtube.com/watch?v=KAUxgUvC514
+Community Material Theme
+Laravel Artisan
+Laravel Blade Snippets
+Laravel Blade Spacer
+Laravel Extra Intellisense & PHP Intelephense 
+Laravel goto view
+Laravel goto controller
+Laravel Snippets
+Laravel goto Components
+----------------------------------------------------------------------------------------
+http://192.168.60.239/  - admin / TesdaR6@vaultguard2022
+
+https://github.com/CrestApps/laravel-code-generator
+
+https://github.com/endroid/qr-code 
+
+tinkerun
+
+passphrase : bismillah123
+
++--[ED25519 256]--+
+|*+. oo++         |
+|oo ..*o +        |
+|. .  .+o o       |
+|.     oo+ .      |
+| . o E +S  . o   |
+|. = B +. . .= .  |
+| o O B    oo.o   |
+|  o = .   .oo    |
+|           o.    |
++----[SHA256]-----+
+
+FB jhXJkkHgJj
+
+https://stackoverflow.com/questions/67934525/laravel-eloquent-update-hasmany-with-array-of-ids
+
+SFTP - https://linuxconfig.org/how-to-setup-sftp-server-on-ubuntu-22-04-jammy-jellyfish-linux
+
+email laravel - https://www.youtube.com/watch?v=dv5Z7vyOp80 
+
+
+https://robindirksen.com/blog/google-drive-storage-as-filesystem-in-laravel

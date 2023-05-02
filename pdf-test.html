@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  background-color: black;
+}
+
+    </style>
+</head>
+<body>
+    <div id="embeddedView"></div>
+<script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+<script>
+    // Add ?page=4 to the end of the URL
+const urlToPDF =
+  "https://documentcloud.adobe.com/view-sdk-demo/PDFs/Summary.pdf";
+const clientId = "e800d12fc12c4d60960778b2bc4370af";
+const viewerOptions = {
+  embedMode: "FULL_WINDOW",
+  defaultViewMode: "FIT_PAGE",
+  showDownloadPDF: true,
+  showPrintPDF: false,
+  showLeftHandPanel: true,
+  showAnnotationTools: false
+};
+
+function fetchPDF(urlToPDF) {
+  return new Promise((resolve) => {
+    fetch(urlToPDF)
+      .then((resolve) => resolve.blob())
+      .then((blob) => {
+        resolve(blob.arrayBuffer());
+      });
+  });
+}
+
+function goToPage(previewFilePromise, pageNum) {
+  previewFilePromise.then((adobeViewer) => {
+    adobeViewer.getAPIs().then((apis) => {
+      // Go to the page. Page numbers are 1 based.
+      apis.gotoLocation(parseInt(pageNum));
+    });
+  });
+}
+
+function processEvent(event, previewFilePromise) {
+  if (event.type == "PDF_VIEWER_OPEN") {
+    // Get the page parameter from the URL
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const pageNum = urlParams.get("page");
+    // Go to the page number specified in the URL
+    goToPage(previewFilePromise, pageNum);
+  }
+}
+
+document.addEventListener("adobe_dc_view_sdk.ready", function () {
+  // Create embedded view
+  var adobeDCView = new AdobeDC.View({
+    clientId: clientId,
+    divId: "embeddedView"
+  });
+  // Show the file
+  var previewFilePromise = adobeDCView.previewFile(
+    {
+      content: { promise: fetchPDF(urlToPDF) },
+      metaData: { fileName: urlToPDF.split("/").slice(-1)[0] }
+    },
+    viewerOptions
+  );
+  // create object to set events that we want to listen for
+  var eventOptions = {
+    listenOn: [AdobeDC.View.Enum.Events.PDF_VIEWER_OPEN],
+    enableFilePreviewEvents: true
+  };
+  // register the event callback
+  adobeDCView.registerCallback(
+    AdobeDC.View.Enum.CallbackType.EVENT_LISTENER,
+    function (event) {
+      processEvent(event, previewFilePromise);
+    },
+    eventOptions
+  );
+});
+
+// Helper Function: Add arrayBuffer if necessary i.e. Safari
+(function () {
+  if (Blob.arrayBuffer != "function") {
+    Blob.prototype.arrayBuffer = myArrayBuffer;
+  }
+
+  function myArrayBuffer() {
+    return new Promise((resolve) => {
+      let fileReader = new FileReader();
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.readAsArrayBuffer(this);
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
